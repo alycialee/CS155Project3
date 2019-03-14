@@ -158,6 +158,10 @@ class HiddenMarkovModel:
                 # the probabilities of all paths from the start state to
                 # the current state.
                 for prev in range(self.L):
+                    # print("-----")
+                    # print(curr)
+                    # print(x[t])
+                    # print("----")
                     prob += alphas[t][prev] \
                             * self.A[prev][curr] \
                             * self.O[curr][x[t]]
@@ -531,7 +535,7 @@ def supervised_HMM(X, Y):
     return HMM
 
 
-def unsupervised_HMM(X, n_states, N_iters):
+def unsupervised_HMM(X, n_states, N_iters, D_len=None):
     '''
     Helper function to train an unsupervised HMM. The function determines the
     number of unique observations in the given data, initializes
@@ -555,7 +559,10 @@ def unsupervised_HMM(X, n_states, N_iters):
     
     # Compute L and D.
     L = n_states
-    D = len(observations)
+    D = D_len
+    if D is None:
+        D = len(observations)
+    # print(D)
 
     # Randomly initialize and normalize matrices A and O.
     A = [[random.random() for i in range(L)] for j in range(L)]
