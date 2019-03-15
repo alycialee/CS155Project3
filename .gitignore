@@ -108,3 +108,4 @@ venv.bak/
 *.pkl
 *.png
 *.hmm
+models/*
