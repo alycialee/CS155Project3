@@ -108,3 +108,5 @@ venv.bak/
 *.pkl
 *.png
 *.hmm
+models/*
+rnn/visuals/*.png
