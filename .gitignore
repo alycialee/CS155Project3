@@ -111,3 +111,6 @@ venv.bak/
 models/*
 rnn/visuals/*.png
 rnn/models/*
+kush/models/*
+kush/.DS_Store
+kush/.ipynb_checkpoints
