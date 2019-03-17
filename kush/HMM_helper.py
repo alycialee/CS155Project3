@@ -132,7 +132,7 @@ def sample_sentence(hmm, obs_map, n_words=100):
 # HMM VISUALIZATION FUNCTIONS
 ####################
 
-def visualize_sparsities(hmm, O_max_cols=50, O_vmax=0.1):
+def visualize_sparsities(hmm, name, O_max_cols=50, O_vmax=0.1):
     plt.close('all')
     plt.set_cmap('viridis')
 
@@ -140,14 +140,16 @@ def visualize_sparsities(hmm, O_max_cols=50, O_vmax=0.1):
     plt.imshow(hmm.A, vmax=1.0)
     plt.colorbar()
     plt.title('Sparsity of A matrix')
+    plt.savefig('../visuals/{}/{}_A_sparsity.png'.format(name, name))
     plt.show()
 
     # Visualize parsity of O.
     plt.imshow(np.array(hmm.O)[:, :O_max_cols], vmax=O_vmax, aspect='auto')
     plt.colorbar()
     plt.title('Sparsity of O matrix')
+    plt.savefig('../visuals/{}/{}_O_sparsity.png'.format(name, name))
     plt.show()
-
+    
 
 ####################
 # HMM ANIMATION FUNCTIONS
